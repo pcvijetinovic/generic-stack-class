@@ -36,7 +36,18 @@ public class GenericStack<T> {
         return (T) data[top];
     }
 
+    public String list() {
+        String result = "";
 
+        for (int i = 0; i <= top; i++) {
+            result = result + data[i];
+            if (i < top) {
+                result = result + ";";
+            }
+        }
+
+        return result;
+    }
 
 
 }
