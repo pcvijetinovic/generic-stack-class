@@ -16,4 +16,27 @@ public class GenericStack<T> {
         top++;
         data[top] = value;
     }
+
+    public T pop() throws StackEmptyException {
+        if (top == -1) {
+            throw new StackEmptyException("Stack is empty");
+        }
+
+        T value = (T) data[top];
+        data[top] = null;
+        top--;
+        return value;
+    }
+
+    public T peek() throws StackEmptyException {
+        if (top == -1) {
+            throw new StackEmptyException("Stack is empty");
+        }
+
+        return (T) data[top];
+    }
+
+
+
+
 }
