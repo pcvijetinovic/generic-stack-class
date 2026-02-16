@@ -1,11 +1,11 @@
 public class GenericStack<T> {
-
+    // Object array is used because generic arrays cannot be created directly
     private Object[] data;
     private int top;
 
     public GenericStack(int size) {
         data = new Object[size];
-        top = -1;
+        top = -1; // stack starts empty
     }
 
     public void push(T value) throws StackFullException {
@@ -22,6 +22,7 @@ public class GenericStack<T> {
             throw new StackEmptyException("Stack is empty");
         }
 
+        // Cast from Object to T because we store data in Object[]
         T value = (T) data[top];
         data[top] = null;
         top--;
@@ -32,7 +33,7 @@ public class GenericStack<T> {
         if (top == -1) {
             throw new StackEmptyException("Stack is empty");
         }
-
+        // Cast is needed because array stores Object
         return (T) data[top];
     }
 
